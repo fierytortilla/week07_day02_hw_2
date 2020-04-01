@@ -1,0 +1,35 @@
+body{
+    width: 100%;
+    background-image: url(https://media.giphy.com/media/elMvNaZf7XamNvrqBZ/giphy.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+h1{
+    text-align: center;
+    color:green;
+}
+
+#app {
+    font-family: "Comic Sans MS";
+    text-align: center;
+}
+
+input{
+    width: 5%;
+}
+
+select{
+    width: 10%;
+}
+
+#result {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    padding: 50px;
+    font-size: x-large;
+}

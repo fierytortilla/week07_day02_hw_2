@@ -1,0 +1,48 @@
+<!-- 1/ Create project folder
+2/ NPM Init
+3/ NPM install VUE
+4/ NPM i -D webpack webpack-cli
+5/ Create folder structure (src, public, public/css, public/js)
+6/ Add the webpack.config.js file & the .gitignore file
+7/ Add  "build": "webpack -w" into package.json
+8/ Create your index.html, app.js, style.css
+9/ Setup the basics in the index.html, app.js files
+10/ NPM RUN BUILD
+11/ open public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/bundle.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Currency Exchanger</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Currency Exchanger</h1>
+        <label>Select the amount to be converted</label>
+        <input type="number" v-model="amountToBeConverted"/>
+        <label>from this currency:</label>
+        <select v-model="baseCurrency">
+            <option disabled value="select a currency">Select a currency</option>
+            <option v-for="(key,value) in rates" :value="value">{{value}}</option>
+        </select>
+        <label>into this currency:</label>
+        <select v-model="selectedCurrency">
+            <option disabled value="select a currency">Select a currency</option>
+            <option v-for="(key, value) in rates" :value="value">{{ value }}</option>
+        </select>
+        <br>
+        <br>
+        <div id="result" v-if="baseCurrency!= null && selectedCurrency!= null && amountToBeConverted!=0">
+            <label>Amount Converted</label>
+            <p v-if="baseCurrency==='EUR'">{{amountToBeConverted}} {{baseCurrency}} equals {{convertCurrencyFromEuros}} {{selectedCurrency}}</p>
+            <p v-if="selectedCurrency==='EUR' && baseCurrency!= 'EUR'">{{amountToBeConverted}} {{baseCurrency}} equals {{convertCurrencyToEuros}} {{selectedCurrency}}</p>
+            <p v-if="baseCurrency!='EUR' && selectedCurrency!='EUR'">{{amountToBeConverted}} {{baseCurrency}} equals {{convertCurrency}} {{selectedCurrency}}</p>
+        </div>
+
+    </div>
+</body>
+</html>
